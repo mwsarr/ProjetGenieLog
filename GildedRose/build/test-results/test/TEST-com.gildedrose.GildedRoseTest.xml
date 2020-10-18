@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gildedrose.GildedRoseTest" tests="21" skipped="0" failures="0" errors="0" timestamp="2020-10-18T19:25:01" hostname="sarr-VirtualBox" time="0.417">
+  <properties/>
+  <testcase name="testIfQualityNegatif()" classname="com.gildedrose.GildedRoseTest" time="0.131"/>
+  <testcase name="testAgedBrieWithsellInNegatif()" classname="com.gildedrose.GildedRoseTest" time="0.002"/>
+  <testcase name="testBackstageUpdateGT50()" classname="com.gildedrose.GildedRoseTest" time="0.002"/>
+  <testcase name="testBackstageUpdate2()" classname="com.gildedrose.GildedRoseTest" time="0.002"/>
+  <testcase name="testBackstageUpdate3()" classname="com.gildedrose.GildedRoseTest" time="0.004"/>
+  <testcase name="testQualityZero()" classname="com.gildedrose.GildedRoseTest" time="0.003"/>
+  <testcase name="testDecrementationSellinAgedBrie()" classname="com.gildedrose.GildedRoseTest" time="0.004"/>
+  <testcase name="testSellinNegatif()" classname="com.gildedrose.GildedRoseTest" time="0.006"/>
+  <testcase name="testDecrementationSellin()" classname="com.gildedrose.GildedRoseTest" time="0.005"/>
+  <testcase name="testBackstageUpdateGTE50()" classname="com.gildedrose.GildedRoseTest" time="0.004"/>
+  <testcase name="testDecrementationQuality()" classname="com.gildedrose.GildedRoseTest" time="0.009"/>
+  <testcase name="testDecrementationQualityZero()" classname="com.gildedrose.GildedRoseTest" time="0.002"/>
+  <testcase name="testDecrementationSellinBackStage()" classname="com.gildedrose.GildedRoseTest" time="0.002"/>
+  <testcase name="testBackstageUpdateGTBIS50()" classname="com.gildedrose.GildedRoseTest" time="0.002"/>
+  <testcase name="testDecrementationSellinSulfura()" classname="com.gildedrose.GildedRoseTest" time="0.013"/>
+  <testcase name="testBackstageWithsellInNegatif()" classname="com.gildedrose.GildedRoseTest" time="0.003"/>
+  <testcase name="testSulfuraQuality()" classname="com.gildedrose.GildedRoseTest" time="0.009"/>
+  <testcase name="testIfQualityGt50SellinNeg()" classname="com.gildedrose.GildedRoseTest" time="0.003"/>
+  <testcase name="testAgedBrieUpdateLTE6()" classname="com.gildedrose.GildedRoseTest" time="0.009"/>
+  <testcase name="testBackstageUpdate()" classname="com.gildedrose.GildedRoseTest" time="0.007"/>
+  <testcase name="testAgedBrieUpdateLTE10()" classname="com.gildedrose.GildedRoseTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
