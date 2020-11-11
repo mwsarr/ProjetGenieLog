@@ -3,8 +3,8 @@ package com.gildedrose;
 class GildedRose {
   Item[] items;
 
-  public GildedRose(Item[] items) {
-    this.items = items;
+  public GildedRose(Item[] itemS) {
+    this.items = itemS;
   }
 
   public void updateQuality() {
@@ -14,32 +14,33 @@ class GildedRose {
   }
 
   private void updateItem(Item item) {
-    switch (item.name) {
+    switch (item.getName()) {
+
       case "Aged Brie" :
-        increaseQuality(item);
+        item.increaseQuality();
 
-        decreaseSellIn(item);
+        item.decreaseSellIn();
 
-        if (item.sellIn < 0) {
-          increaseQuality(item);
+        if (item.getSellIn() < 0) {
+          item.increaseQuality();
         }
         break;
 
       case "Backstage passes to a TAFKAL80ETC concert" :
-        increaseQuality(item);
+        item.increaseQuality();
 
-        if (item.sellIn <= 10) {
-          increaseQuality(item);
+        if (item.getSellIn() <= 10) {
+          item.increaseQuality();
         }
 
-        if (item.sellIn <= 5) {
-          increaseQuality(item);
+        if (item.getSellIn() <= 5) {
+          item.increaseQuality();
         }
 
-        decreaseSellIn(item);
+        item.decreaseSellIn();
 
-        if (item.sellIn < 0) {
-          sellInZero(item);
+        if (item.getSellIn() < 0) {
+          item.qualityZero();
         }
         break;
 
@@ -49,33 +50,13 @@ class GildedRose {
         break;
 
       default :
-        decreaseQuality(item);
+        item.decreaseQuality();
 
-        decreaseSellIn(item);
+        item.decreaseSellIn();
 
-        if (item.sellIn < 0) {
-          decreaseQuality(item);
+        if (item.getSellIn() < 0) {
+          item.decreaseQuality();
         }
     }
-  }
-
-  private void increaseQuality(Item item) {
-    if (item.quality < 50) {
-      item.quality = item.quality + 1;
-    }
-  }
-
-  private void decreaseQuality(Item item) {
-    if (item.quality > 0) {
-      item.quality = item.quality - 1;
-    }
-  }
-
-  private void decreaseSellIn(Item item) {
-    item.sellIn = item.sellIn - 1;
-  }
-
-  private void sellInZero(Item item) {
-    item.quality = 0;
   }
 }

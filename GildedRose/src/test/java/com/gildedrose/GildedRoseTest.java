@@ -15,7 +15,7 @@ class GildedRoseTest {
         Item[] items = new Item[] { new Item("Elixir of the Mongoose", 1, 1) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(0));
+        assertThat(app.items[0].getQuality(), is(0));
     }
 
 //test avec qualité égale à zero
@@ -25,7 +25,7 @@ class GildedRoseTest {
         Item[] items = new Item[] { new Item("Elixir of the Mongoose", 1, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(0));
+        assertThat(app.items[0].getQuality(), is(0));
     }
 
     // test pour vérifier backstage... avec qualité inférieure à 50
@@ -35,7 +35,7 @@ class GildedRoseTest {
         Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert",12,42)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(43));
+        assertThat(app.items[0].getQuality(), is(43));
     }
 
     // test qualité égale à 0
@@ -46,7 +46,7 @@ class GildedRoseTest {
         Item[] items = new Item[] {new Item("Aged Brie", 2, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(1));   
+        assertThat(app.items[0].getQuality(), is(1));   
     }
 
     //test si qualité de Sulfura change
@@ -56,7 +56,7 @@ class GildedRoseTest {
         Item[] items = new Item[] {new Item("Sulfuras, Hand of Ragnaros", -1, 80)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(80));
+        assertThat(app.items[0].getQuality(), is(80));
     }
 
     //test quality superieur à 50 avec Sellin negatif
@@ -67,7 +67,7 @@ class GildedRoseTest {
         Item[] items = new Item[] {new Item("Aged Brie", -2, 60) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(60));   
+        assertThat(app.items[0].getQuality(), is(60));   
     }
     // sellin et quality negatif
     @Test
@@ -77,7 +77,7 @@ class GildedRoseTest {
         Item[] items = new Item[] {new Item("+5 Dexterity Vest", -2, -6) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(-6));   
+        assertThat(app.items[0].getQuality(), is(-6));   
     }
 
 
@@ -88,7 +88,7 @@ class GildedRoseTest {
         Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(50));
+        assertThat(app.items[0].getQuality(), is(50));
     }
 //test qualité de backstage ne depasse pas 50 avec sellin <6
 
@@ -98,7 +98,7 @@ class GildedRoseTest {
         Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(50));
+        assertThat(app.items[0].getQuality(), is(50));
     
     }
     // test de backstage avec sellin < 11
@@ -108,7 +108,7 @@ class GildedRoseTest {
         Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert",10,42)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(44));
+        assertThat(app.items[0].getQuality(), is(44));
     }
 
     //test de backstage avec sellin <6
@@ -118,7 +118,7 @@ class GildedRoseTest {
         Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert",5,42)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality, is(45));
+        assertThat(app.items[0].getQuality(), is(45));
     }
 
     //test pour sellIn negatif
@@ -130,7 +130,7 @@ class GildedRoseTest {
         Item[] items = new Item[] {new Item("Elixir of the Mongoose",0,6)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality,is(4));
+        assertThat(app.items[0].getQuality(),is(4));
     }
 
     //test de Backstage...
@@ -140,7 +140,7 @@ class GildedRoseTest {
         Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert",-1,3)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality,is(0));
+        assertThat(app.items[0].getQuality(),is(0));
    
     }
 
@@ -151,7 +151,7 @@ class GildedRoseTest {
         Item[] items = new Item[]{new Item("Aged Brie",-1,3)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality,is(5));
+        assertThat(app.items[0].getQuality(),is(5));
    
     }
     
@@ -162,7 +162,7 @@ class GildedRoseTest {
         Item[] items = new Item[] { new Item("Elixir of the Mongoose", 1, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].sellIn, is(0));
+        assertThat(app.items[0].getSellIn(), is(0));
     }
      //AgedBrie
     @Test
@@ -171,7 +171,7 @@ class GildedRoseTest {
         Item[] items = new Item[] { new Item("Aged Brie", 1, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].sellIn, is(0));
+        assertThat(app.items[0].getSellIn(), is(0));
     }
     
     //Backstage
@@ -181,7 +181,7 @@ class GildedRoseTest {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 1, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].sellIn, is(0));
+        assertThat(app.items[0].getSellIn(), is(0));
     }
 
     //Sulfura
@@ -191,7 +191,7 @@ class GildedRoseTest {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 1, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].sellIn, is(1));
+        assertThat(app.items[0].getSellIn(), is(1));
     }
 
    }
