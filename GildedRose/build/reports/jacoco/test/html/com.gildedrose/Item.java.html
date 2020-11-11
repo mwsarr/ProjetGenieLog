@@ -2,21 +2,61 @@
 
 public class Item {
 
-    public String name;
+  private String name;
 
-    public int sellIn;
+  private int sellIn;
 
-    public int quality;
+  private int quality;
 
-<span class="fc" id="L11">    public Item(String name, int sellIn, int quality) {</span>
-<span class="fc" id="L12">        this.name = name;</span>
-<span class="fc" id="L13">        this.sellIn = sellIn;</span>
-<span class="fc" id="L14">        this.quality = quality;</span>
-<span class="fc" id="L15">    }</span>
+<span class="fc" id="L11">  public Item(String namE, int sellIN, int qualitY) {</span>
+<span class="fc" id="L12">    this.name = namE;</span>
+<span class="fc" id="L13">    this.sellIn = sellIN;</span>
+<span class="fc" id="L14">    this.quality = qualitY;</span>
+<span class="fc" id="L15">  }</span>
 
-   @Override
-   public String toString() {
-<span class="nc" id="L19">        return this.name + &quot;, &quot; + this.sellIn + &quot;, &quot; + this.quality;</span>
+  /***Méthode to string.*/
+  @Override
+  public String toString() {
+<span class="fc" id="L20">    return this.name + &quot;, &quot; + this.sellIn + &quot;, &quot; + this.quality;</span>
+  }
+
+  /***Augmente la qualité si elle n'est pas maximum.*/
+  void increaseQuality() {
+<span class="fc bfc" id="L25" title="All 2 branches covered.">    if (this.quality &lt; 50) {</span>
+<span class="fc" id="L26">      this.quality = this.quality + 1;</span>
     }
+<span class="fc" id="L28">  }</span>
+
+  /***Diminue la qualité si elle est strictement positif.*/
+  void decreaseQuality() {
+<span class="fc bfc" id="L32" title="All 2 branches covered.">    if (this.quality &gt; 0) {</span>
+<span class="fc" id="L33">      this.quality = this.quality - 1;</span>
+    }
+<span class="fc" id="L35">  }</span>
+
+  /***Diminue le SellIn.*/
+  void decreaseSellIn() {
+<span class="fc" id="L39">    this.sellIn = this.sellIn - 1;</span>
+<span class="fc" id="L40">  }</span>
+
+  /***Mets la qualité à 0.*/
+  void qualityZero() {
+<span class="fc" id="L44">    this.quality = 0;</span>
+<span class="fc" id="L45">  }</span>
+
+  /**@return le nom du produit.*/
+  public String getName() {
+<span class="fc" id="L49">    return this.name;</span>
+  }
+
+  /**@return le SellIn.*/
+  public int getSellIn() {
+<span class="fc" id="L54">    return this.sellIn;</span>
+  }
+
+  /**@return la qualité.*/
+  public int getQuality() {
+<span class="fc" id="L59">    return this.quality;</span>
+  }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
