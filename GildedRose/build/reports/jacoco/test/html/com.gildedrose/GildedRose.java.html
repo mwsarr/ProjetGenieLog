@@ -14,46 +14,46 @@ class GildedRose {
 <span class="fc" id="L14">  }</span>
 
   private void updateItem(Item item) {
-<span class="fc bfc" id="L17" title="All 4 branches covered.">    switch (item.getName()) {</span>
+<span class="pc bpc" id="L17" title="1 of 5 branches missed.">    switch (item.getName()) {</span>
 
       case &quot;Aged Brie&quot; :
 <span class="fc" id="L20">        item.increaseQuality();</span>
-
-<span class="fc" id="L22">        item.decreaseSellIn();</span>
-
-<span class="fc bfc" id="L24" title="All 2 branches covered.">        if (item.getSellIn() &lt; 0) {</span>
-<span class="fc" id="L25">          item.increaseQuality();</span>
+<span class="fc" id="L21">        item.decreaseSellIn();</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if (item.getSellIn() &lt; 0) {</span>
+<span class="fc" id="L23">          item.increaseQuality();</span>
         }
         break;
 
       case &quot;Backstage passes to a TAFKAL80ETC concert&quot; :
-<span class="fc" id="L30">        item.increaseQuality();</span>
-
-<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (item.getSellIn() &lt;= 10) {</span>
+<span class="fc" id="L28">        item.increaseQuality();</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (item.getSellIn() &lt;= 10) {</span>
+<span class="fc" id="L30">          item.increaseQuality();</span>
+        }
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (item.getSellIn() &lt;= 5) {</span>
 <span class="fc" id="L33">          item.increaseQuality();</span>
         }
-
-<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (item.getSellIn() &lt;= 5) {</span>
-<span class="fc" id="L37">          item.increaseQuality();</span>
-        }
-
-<span class="fc" id="L40">        item.decreaseSellIn();</span>
-
-<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (item.getSellIn() &lt; 0) {</span>
-<span class="fc" id="L43">          item.qualityZero();</span>
+<span class="fc" id="L35">        item.decreaseSellIn();</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (item.getSellIn() &lt; 0) {</span>
+<span class="fc" id="L37">          item.qualityZero();</span>
         }
         break;
 
       case &quot;Sulfuras, Hand of Ragnaros&quot; :
-
         //DO NOTHING
-<span class="fc" id="L50">        break;</span>
+<span class="fc" id="L43">        break;</span>
+
+      case &quot;Conjured&quot; :
+<span class="nc" id="L46">        item.decreaseQuality();</span>
+<span class="nc" id="L47">        item.decreaseQuality();</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (item.getQuality() &lt; 0) {</span>
+<span class="nc" id="L49">          item.qualityZero();</span>
+        }
+<span class="nc" id="L51">        item.decreaseSellIn();</span>
+<span class="nc" id="L52">        break;</span>
 
       default :
-<span class="fc" id="L53">        item.decreaseQuality();</span>
-
-<span class="fc" id="L55">        item.decreaseSellIn();</span>
-
+<span class="fc" id="L55">        item.decreaseQuality();</span>
+<span class="fc" id="L56">        item.decreaseSellIn();</span>
 <span class="fc bfc" id="L57" title="All 2 branches covered.">        if (item.getSellIn() &lt; 0) {</span>
 <span class="fc" id="L58">          item.decreaseQuality();</span>
         }
