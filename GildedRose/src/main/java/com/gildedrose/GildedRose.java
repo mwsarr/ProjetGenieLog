@@ -8,64 +8,74 @@ class GildedRose {
   }
 
   public void updateQuality() {
-    for (int i = 0; i < items.length; i++) {
-      switch (items[i].name) {
-        case "Aged Brie" :
-          if (items[i].quality < 50) {
-            items[i].quality = items[i].quality + 1;
-          }
+    for (Item item : items) {
+      updateItem(item);
+    }
+  }
 
-          items[i].sellIn = items[i].sellIn - 1;
+  private void updateItem(Item item) {
+    switch (item.name) {
+      case "Aged Brie" :
+        increaseQuality(item);
 
-          if (items[i].sellIn < 0) {
-            if (items[i].quality < 50) {
-              items[i].quality = items[i].quality + 1;
-            }
-          }
-          break;
+        decreaseSellIn(item);
 
-        case "Backstage passes to a TAFKAL80ETC concert" :
-          if (items[i].quality < 50) {
-            items[i].quality = items[i].quality + 1;
-          }
+        if (item.sellIn < 0) {
+          increaseQuality(item);
+        }
+        break;
 
-          if (items[i].sellIn <= 10) {
-            if (items[i].quality < 50) {
-              items[i].quality = items[i].quality + 1;
-            }
-          }
+      case "Backstage passes to a TAFKAL80ETC concert" :
+        increaseQuality(item);
 
-          if (items[i].sellIn <= 5) {
-            if (items[i].quality < 50) {
-              items[i].quality = items[i].quality + 1;
-            }
-          }
+        if (item.sellIn <= 10) {
+          increaseQuality(item);
+        }
 
-          items[i].sellIn = items[i].sellIn - 1;
+        if (item.sellIn <= 5) {
+          increaseQuality(item);
+        }
 
-          if (items[i].sellIn < 0) {
-            items[i].quality = 0;
-          }
-          break;
+        decreaseSellIn(item);
 
-        case "Sulfuras, Hand of Ragnaros" :
+        if (item.sellIn < 0) {
+          sellInZero(item);
+        }
+        break;
 
-          //DO NOTHING
-          break;
+      case "Sulfuras, Hand of Ragnaros" :
 
-        default :
-          if (items[i].quality > 0) {
-            items[i].quality = items[i].quality - 1;
-          }
+        //DO NOTHING
+        break;
 
-          items[i].sellIn = items[i].sellIn - 1;
+      default :
+        decreaseQuality(item);
 
-          if (items[i].sellIn < 0) {
-            if (items[i].quality > 0) {
-              items[i].quality = items[i].quality - 1;
-            }
-          }
-      }
-    } //0
+        decreaseSellIn(item);
+
+        if (item.sellIn < 0) {
+          decreaseQuality(item);
+        }
+    }
+  }
+
+  private void increaseQuality(Item item) {
+    if (item.quality < 50) {
+      item.quality = item.quality + 1;
+    }
+  }
+
+  private void decreaseQuality(Item item) {
+    if (item.quality > 0) {
+      item.quality = item.quality - 1;
+    }
+  }
+
+  private void decreaseSellIn(Item item) {
+    item.sellIn = item.sellIn - 1;
+  }
+
+  private void sellInZero(Item item) {
+    item.quality = 0;
   }
 }
