@@ -48,7 +48,15 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].quality, is(1));   
     }
-
+      @Test
+    void testBackstageWithUpdateQuality()
+    {
+        Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert",5,60)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality,is(60));
+   
+    }
     //test si qualité de Sulfura change
     @Test
     void testSulfuraQuality()
