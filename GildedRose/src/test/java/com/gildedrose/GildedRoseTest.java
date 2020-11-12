@@ -204,7 +204,16 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].getSellIn(), is(1));
     }
+
+    //ToString
+    @Test
+    void TestToString() {
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 1, 0) };
+        assertThat(items[0].toString(), is("Sulfuras, Hand of Ragnaros, 1, 0"));
+    }
+
     //Conjured
+    @Test
     void testDecrementationQualityOfConjured()
     {
         Item[] items = new Item[] { new Item("Conjured", 6, 30) };
@@ -212,7 +221,8 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].getQuality(), is(28));
     }
-  
+    
+    @Test
      void testQualityOfConjuredEqualZero()
     {
         Item[] items = new Item[] { new Item("Conjured", 6, -3) };

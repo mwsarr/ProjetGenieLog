@@ -14,7 +14,7 @@ class GildedRose {
 <span class="fc" id="L14">  }</span>
 
   private void updateItem(Item item) {
-<span class="pc bpc" id="L17" title="1 of 5 branches missed.">    switch (item.getName()) {</span>
+<span class="fc bfc" id="L17" title="All 5 branches covered.">    switch (item.getName()) {</span>
 
       case &quot;Aged Brie&quot; :
 <span class="fc" id="L20">        item.increaseQuality();</span>
@@ -43,13 +43,13 @@ class GildedRose {
 <span class="fc" id="L43">        break;</span>
 
       case &quot;Conjured&quot; :
-<span class="nc" id="L46">        item.decreaseQuality();</span>
-<span class="nc" id="L47">        item.decreaseQuality();</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (item.getQuality() &lt; 0) {</span>
-<span class="nc" id="L49">          item.qualityZero();</span>
+<span class="fc" id="L46">        item.decreaseQuality();</span>
+<span class="fc" id="L47">        item.decreaseQuality();</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (item.getQuality() &lt; 0) {</span>
+<span class="fc" id="L49">          item.qualityZero();</span>
         }
-<span class="nc" id="L51">        item.decreaseSellIn();</span>
-<span class="nc" id="L52">        break;</span>
+<span class="fc" id="L51">        item.decreaseSellIn();</span>
+<span class="fc" id="L52">        break;</span>
 
       default :
 <span class="fc" id="L55">        item.decreaseQuality();</span>
