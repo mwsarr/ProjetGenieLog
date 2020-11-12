@@ -18,9 +18,9 @@ class GildedRoseTest {
         assertThat(app.items[0].getQuality(), is(0));
     }
 
-//test avec qualité égale à zero
-    @Test
-     void testDecrementationQualityZero()
+
+   @Test
+     void testDecrementationForQualityEqualZero()
     {
         Item[] items = new Item[] { new Item("Elixir of the Mongoose", 1, 0) };
         GildedRose app = new GildedRose(items);
@@ -48,15 +48,7 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].getQuality(), is(1));   
     }
-      @Test
-    void testBackstageWithUpdateQuality()
-    {
-        Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert",5,60)};
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].getQuality(),is(60));
-   
-    }
+
     //test si qualité de Sulfura change
     @Test
     void testSulfuraQuality()
@@ -118,6 +110,16 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].getQuality(), is(44));
     }
+    
+    @Test
+    void testBackstageWithUpdateQuality()
+    {
+        Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert",5,60)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].getQuality(),is(60));
+   
+    }
 
     //test de backstage avec sellin <6
     @Test
@@ -172,6 +174,7 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].getSellIn(), is(0));
     }
+
      //AgedBrie
     @Test
     void testDecrementationSellinAgedBrie()
@@ -201,12 +204,21 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].getSellIn(), is(1));
     }
-
-    //TEST TOSTRING
-    @Test
-    void testToString() {
-        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 1, 0) };
-        assertThat(items[0].toString(), is("Sulfuras, Hand of Ragnaros, 1, 0"));
+    //Conjured
+    void testDecrementationQualityOfConjured()
+    {
+        Item[] items = new Item[] { new Item("Conjured", 6, 30) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].getQuality(), is(28));
     }
-
+  
+     void testQualityOfConjuredEqualZero()
+    {
+        Item[] items = new Item[] { new Item("Conjured", 6, -3) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].getQuality(), is(0));
+    }
+    
    }
