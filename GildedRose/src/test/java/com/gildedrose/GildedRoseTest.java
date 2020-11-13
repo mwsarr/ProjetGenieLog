@@ -10,7 +10,7 @@ class GildedRoseTest {
 
     //test si la qualité décrémente
     @Test
-     void testDecrementationQuality()
+     void testDecrementationOfQuality()
     {
         Item[] items = new Item[] { new Item("Elixir of the Mongoose", 1, 1) };
         GildedRose app = new GildedRose(items);
@@ -38,9 +38,9 @@ class GildedRoseTest {
         assertThat(app.items[0].getQuality(), is(43));
     }
 
-    // test qualité égale à 0
+  
     @Test
-    void testQualityZero()
+    void testQualityZeroForAgedBrie()
     {
         
         Item[] items = new Item[] {new Item("Aged Brie", 2, 0) };
@@ -49,7 +49,7 @@ class GildedRoseTest {
         assertThat(app.items[0].getQuality(), is(1));   
     }
 
-    //test si qualité de Sulfura change
+    
     @Test
     void testSulfuraQuality()
     {
@@ -61,7 +61,7 @@ class GildedRoseTest {
 
     //test quality superieur à 50 avec Sellin negatif
     @Test
-    void testIfQualityGt50()
+    void testQualityGt50WithSellinNegative()
     {
 
         Item[] items = new Item[] {new Item("Aged Brie", -2, 60) };
@@ -69,31 +69,10 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].getQuality(), is(60));   
     }
-    // sellin et quality negatif
-    @Test
-    void testIfQualityNegatif()
-    {
-
-        Item[] items = new Item[] {new Item("+5 Dexterity Vest", -2, -6) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].getQuality(), is(-6));   
-    }
-
-
-//test qualité de backstage ne depasse pas 50 avec sellin <10
-    @Test 
-    void testBackstageUpdateGTE50()
-    {
-        Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)};
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].getQuality(), is(50));
-    }
-//test qualité de backstage ne depasse pas 50 avec sellin <6
+ 
 
     @Test 
-    void testBackstageUpdateGT50()
+    void testIfQualityExceeds50()
     {
         Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49)};
         GildedRose app = new GildedRose(items);
@@ -103,44 +82,23 @@ class GildedRoseTest {
     }
     // test de backstage avec sellin < 11
     @Test 
-    void testBackstageUpdate2()
+    void testBackstageUpdateWithSellinLT11()
     {
         Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert",10,42)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(app.items[0].getQuality(), is(44));
+        assertThat(app.items[0].getSellIn(), is(9));
     }
     
     @Test
-    void testBackstageWithUpdateQuality()
+    void testBackstageWithQualityGT50()
     {
         Item[] items = new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert",5,60)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(app.items[0].getQuality(),is(60));
    
-    }
-
-    //test de backstage avec sellin <6
-    @Test
-    void testBackstageUpdate3()
-    {
-        Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert",5,42)};
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].getQuality(), is(45));
-    }
-
-    //test pour sellIn negatif
-
-    //test de Elixir...
-    @Test
-    void testSellinNegatif()
-    {
-        Item[] items = new Item[] {new Item("Elixir of the Mongoose",0,6)};
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].getQuality(),is(4));
     }
 
     //test de Backstage...
@@ -154,6 +112,17 @@ class GildedRoseTest {
    
     }
 
+    //test de Elixir...
+    @Test
+    void testSellinEqualZero()
+    {
+        Item[] items = new Item[] {new Item("Elixir of the Mongoose",0,6)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].getQuality(),is(4));
+    }
+
+    
     //test de AgedBrie
     @Test
     void testAgedBrieWithsellInNegatif()
@@ -185,15 +154,7 @@ class GildedRoseTest {
         assertThat(app.items[0].getSellIn(), is(0));
     }
     
-    //Backstage
-    @Test
-    void testDecrementationSellinBackStage()
-    {
-        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 1, 0) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].getSellIn(), is(0));
-    }
+     
 
     //Sulfura
      @Test
@@ -223,7 +184,7 @@ class GildedRoseTest {
     }
     
     @Test
-     void testQualityOfConjuredEqualZero()
+     void testQualityOfConjuredLTE0()
     {
         Item[] items = new Item[] { new Item("Conjured", 6, -3) };
         GildedRose app = new GildedRose(items);
